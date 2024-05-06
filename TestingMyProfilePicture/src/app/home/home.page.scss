@@ -1,0 +1,14 @@
+.image-holder {
+  background-color: lightgray;
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  margin-top: 35px;
+}
+
+#uploadedMedia img {
+  border-radius: 15px;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}

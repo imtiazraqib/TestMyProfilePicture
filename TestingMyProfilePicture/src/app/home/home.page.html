@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Test My Profile Picture </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section>
+    <div class="container is-flex centered column">
+      <div
+        id="uploadedMedia"
+        class="image-holder is-flex centered"
+        *ngIf="flags.profilePicture"
+      >
+        <img [src]="flags.profilePicture" *ngIf="flags.profilePicture" />
+      </div>
+
+      <div class="image-holder is-flex centered" *ngIf="!flags.profilePicture">
+        <img src="../../assets/icons8-image-188.png" width="125px" />
+      </div>
+      <ion-buttons class="mt-20">
+        <ion-button
+          fill="solid"
+          shape="round"
+          color="primary"
+          (click)="fileInput.click()"
+          ><ion-icon slot="start" name="cloud-upload-outline"></ion-icon
+          >Upload</ion-button
+        >
+        <input
+          type="file"
+          #fileInput
+          style="display: none"
+          (change)="uploadImage($event)"
+          accept="image/*"
+        />
+        <ion-button
+          fill="outline"
+          shape="round"
+          color="danger"
+          (click)="cropImage()"
+          *ngIf="flags.profilePicture"
+          ><ion-icon slot="start" name="crop-outline"></ion-icon>Crop
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </section>
+</ion-content>
