@@ -8,6 +8,12 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomePage {
   flags: any;
+  feedTogglePages: any;
+  feed: any;
+  reels: any;
+  tagged: any;
+  animate: boolean = false;
+
   constructor(private authService: AuthService) {
     this.flags = {
       profilePicture: '',
@@ -34,4 +40,9 @@ export class HomePage {
   }
 
   cropImage() {}
+
+  instagram() {
+    this.animate = true;
+    setTimeout(() => (this.animate = false), 1000); // reset animation state after it ends
+  }
 }

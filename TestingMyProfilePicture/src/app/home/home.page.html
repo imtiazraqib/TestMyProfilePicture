@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Test My Profile Picture </ion-title>
+    <div class="header">
+      <img src="../../assets/logo.jpg" width="50px" />
+      <h1>Test My Profile Picture</h1>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -25,7 +28,8 @@
           color="primary"
           (click)="fileInput.click()"
           ><ion-icon slot="start" name="cloud-upload-outline"></ion-icon
-          >Upload</ion-button
+          >{{flags.profilePicture === '' ? 'Upload' : 'Upload New'
+          }}</ion-button
         >
         <input
           type="file"
@@ -45,4 +49,109 @@
       </ion-buttons>
     </div>
   </section>
+
+  <hr />
+
+  <div class="is-flex has-gap mb-30">
+    <div>
+      <ion-button (click)="instagram()">
+        <ion-icon slot="start" name="logo-instagram"></ion-icon>Preview
+        Instagram
+      </ion-button>
+    </div>
+    <div>
+      <ion-button disabled="true" (click)="instagram()">
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>Preview Facebook
+      </ion-button>
+    </div>
+    <div>
+      <ion-button disabled="true" (click)="instagram()">
+        <ion-icon slot="start" name="logo-linkedin"></ion-icon>Preview LinkedIn
+      </ion-button>
+    </div>
+  </div>
+
+  <div
+    id="instagram"
+    [ngClass]="{'animate__animated': animate, 'animate__fadeInUp': animate}"
+  >
+    <div class="igTopHeader">
+      <h5>testmyprofilepicture</h5>
+      <div>
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="igAvatarContainer">
+      <img
+        [src]="flags.profilePicture ? flags.profilePicture : '../../assets/logo.jpg'"
+        alt="avatar"
+        class="igAvatar"
+      />
+      <div class="wrapper is-flex space-between">
+        <div class="igPostCount">
+          <span>28</span>
+          <p>Posts</p>
+        </div>
+        <div class="igFollowersCount">
+          <span>965</span>
+          <p>Followers</p>
+        </div>
+        <div class="igFollowingCount">
+          <span>786</span>
+          <p>Following</p>
+        </div>
+      </div>
+    </div>
+    <div class="igBioContainer">
+      <h5>Test My Profile Picture</h5>
+      <p>
+        A simple web app that helps you see what your profile picture looks like
+        on Instagram. ✨
+      </p>
+    </div>
+    <div class="igQuickActionBtns">
+      <ion-button fill="solid" shape="round" color="medium">
+        Edit profile
+      </ion-button>
+      <ion-button fill="solid" shape="round" color="medium">
+        Share profile
+      </ion-button>
+    </div>
+    <div class="igFeedToggle">
+      <ion-segment class="mt-10" [(ngModel)]="feedTogglePages">
+        <ion-segment-button value="feed">
+          <ion-icon name="apps-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="reels">
+          <ion-icon name="videocam-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="tagged">
+          <ion-icon name="pricetags-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+      <ng-container [ngSwitch]="feedTogglePages">
+        <div *ngSwitchCase="feed">
+          <div class="igFeedPost">
+            <img src="https://abh.ai/nature/200" alt="post" />
+            <img src="https://abh.ai/cats/200" alt="post" />
+            <img src="https://abh.ai/things/200" alt="post" />
+            <img src="https://abh.ai/beaches/200" alt="post" />
+            <img src="https://abh.ai/random/200" alt="post" />
+            <img src="https://abh.ai/landscapes/200" alt="post" />
+            <img src="https://abh.ai/random/200" alt="post" />
+            <img src="https://abh.ai/things/200" alt="post" />
+            <img src="https://abh.ai/beaches/200" alt="post" />
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="igBottomBar">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-icon name="heart-outline"></ion-icon>
+      <ion-icon name="person-outline"></ion-icon>
+    </div>
+  </div>
 </ion-content>
