@@ -101,3 +101,23 @@
 .igQuickActionBtns > ion-button {
   width: 48%;
 }
+
+.cropModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3%;
+  z-index: 9999;
+}
+
+.cropModal > wrapper {
+  background-color: lightblue;
+  padding: 25px;
+}
+
+image-cropper {
+  height: 400px;
+}

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +15,22 @@ export class HomePage {
   reels: any;
   tagged: any;
   animate: boolean = false;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  showCropper = false;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private sanitizer: DomSanitizer
+  ) {
+    this.feedTogglePages = 'feed';
     this.flags = {
       profilePicture: '',
     };
   }
 
   uploadImage(event: Event) {
+    this.imageChangedEvent = event;
     const element = event.target as HTMLInputElement; // Typecast to HTMLInputElement
     const files = element.files; // Now you can safely access the files property
     if (files && files.length > 0) {
@@ -34,12 +44,40 @@ export class HomePage {
           .then((profilePicture) => {
             console.log('PROFILE PICTURE >>> ', profilePicture);
             this.flags.profilePicture = profilePicture?.signedUrl;
+            this.imageLoaded();
           });
       });
     }
   }
 
-  cropImage() {}
+  finalizeImage(event: Event) {}
+
+  imageCropped(event: ImageCroppedEvent) {
+    // Preview the cropped image
+    this.croppedImage = this.sanitizer.bypassSecurityTrustUrl(
+      event.objectUrl || event.base64 || ''
+    );
+    console.log(event);
+    this.flags.profilePicture = this.croppedImage;
+  }
+
+  imageLoaded() {
+    this.showCropper = true;
+
+    console.log('Image loaded');
+  }
+
+  cropperReady() {
+    console.log('Cropper ready');
+  }
+
+  loadImageFailed() {
+    console.log('Load failed');
+  }
+
+  cropImage() {
+    this.showCropper = !this.showCropper;
+  }
 
   instagram() {
     this.animate = true;
