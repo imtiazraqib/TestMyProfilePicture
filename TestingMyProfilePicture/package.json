@@ -28,6 +28,7 @@
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
+    "@supabase/supabase-js": "^2.43.4",
     "animate.css": "^4.1.1",
     "ionicons": "^7.0.0",
     "ngx-image-cropper": "^8.0.0",

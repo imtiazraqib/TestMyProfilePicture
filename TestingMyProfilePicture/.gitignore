@@ -22,7 +22,6 @@ log.txt
 /www
 /platforms
 /plugins
-src/environments/environment.prod.ts
 src/environments/environment.ts
 
 # Compiled output
