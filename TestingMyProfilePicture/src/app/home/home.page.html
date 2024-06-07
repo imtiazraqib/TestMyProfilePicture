@@ -1,7 +1,13 @@
-<app-header></app-header>
+<div class="header">
+  <a href="/">
+    <img class="padding" src="../../../assets/logo.png" width="200" />
+  </a>
+</div>
 <ion-content>
-  <section>
-    <div class="cropModal is-flex column" *ngIf="showCropper">
+  <section class="pt-160">
+    <h2 class="is-flex centered">Upload Your Image &</h2>
+    <h1 class="is-flex centered mt-10">Test Your Profile Picture</h1>
+    <div class="cropModal is-flex column mt-20" *ngIf="showCropper">
       <!-- Image Cropper Element -->
       <div class="wrapper">
         <image-cropper
