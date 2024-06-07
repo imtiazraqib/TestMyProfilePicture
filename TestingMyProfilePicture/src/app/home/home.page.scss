@@ -16,8 +16,8 @@
 #instagram {
   min-width: 360px;
   margin: auto;
-  width: 480px;
-  height: 900px;
+  max-width: 480px;
+  height: auto;
   border-radius: 15px;
   padding: 15px;
   border: 2px solid black;
@@ -45,6 +45,8 @@
   gap: 20px;
   font-weight: bold;
   margin-top: 10px;
+  margin-left: 10%;
+  font-size: 14px;
 }
 
 .igAvatar {
