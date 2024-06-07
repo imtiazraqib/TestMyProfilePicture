@@ -102,6 +102,15 @@ hr {
   gap: 15px;
 }
 
+.txt-center {
+  text-align: center;
+}
+
+.footer {
+  margin-top: 60px;
+  padding: 15px;
+}
+
 @media screen and (max-width: 600px) {
   section {
     padding: 10px;

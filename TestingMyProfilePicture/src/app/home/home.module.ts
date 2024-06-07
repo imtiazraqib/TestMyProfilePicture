@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { ImageCropperComponent } from 'ngx-image-cropper';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { ImageCropperComponent } from 'ngx-image-cropper';
     IonicModule,
     HomePageRoutingModule,
     ImageCropperComponent,
+    ComponentsModule,
   ],
   declarations: [HomePage],
 })
