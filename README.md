@@ -1,4 +1,4 @@
-# Test My Profile Picture
+# Test My Profile Picture [![Netlify Status](https://api.netlify.com/api/v1/badges/31369363-4f27-412c-adab-c01e6a015b71/deploy-status)](https://app.netlify.com/sites/testmyprofilepicture/deploys)
 
 Test My Profile Picture is a web application that allows users to preview what their profile picture will look like on various social media platforms before actually updating it. This tool is especially useful for those looking to change their profile images but want to see how they will look beforehand.
 
