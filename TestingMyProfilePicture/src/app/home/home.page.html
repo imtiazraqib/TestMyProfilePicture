@@ -90,13 +90,13 @@
         </ion-button>
       </div>
       <div>
-        <ion-button disabled="true" (click)="instagram()">
+        <ion-button (click)="facebook()">
           <ion-icon slot="start" name="logo-facebook"></ion-icon>Preview
           Facebook
         </ion-button>
       </div>
       <div>
-        <ion-button disabled="true" (click)="instagram()">
+        <ion-button disabled="true" (click)="linkedin()">
           <ion-icon slot="start" name="logo-linkedin"></ion-icon>Preview
           LinkedIn
         </ion-button>
@@ -105,6 +105,7 @@
 
     <div
       id="instagram"
+      *ngIf="flags.activePlatform === 'instagram'"
       [ngClass]="{'animate__animated': animate, 'animate__fadeInUp': animate}"
     >
       <div class="igTopHeader">
@@ -209,6 +210,75 @@
         <ion-icon name="search-outline"></ion-icon>
         <ion-icon name="add-circle-outline"></ion-icon>
         <ion-icon name="heart-outline"></ion-icon>
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+    </div>
+    <div
+      id="facebook"
+      *ngIf="flags.activePlatform === 'facebook'"
+      [ngClass]="{'animate__animated': animate, 'animate__fadeInUp': animate}"
+    >
+      <div class="fbHeader">
+        <div class="fbProfilePicture"></div>
+        <div class="fbAvatarContainer">
+          <img
+            [src]="flags.profilePicture ? flags.profilePicture : '../../assets/logo.jpg'"
+            alt="avatar"
+            class="fbAvatar"
+          />
+        </div>
+      </div>
+      <div class="fbHeaderDeatilsContainer">
+        <p><strong>Test My Profile Picture</strong></p>
+        <p>
+          A simple web app that helps you see what your profile picture looks
+          like on Facebook. ✨
+        </p>
+      </div>
+      <div class="fbButtons">
+        <ion-button fill="solid" shape="round" color="primary"
+          ><ion-icon class="mr-5" name="add-outline"></ion-icon>Add to
+          Story</ion-button
+        >
+        <ion-button fill="solid" shape="round" color="secondary"
+          ><ion-icon class="mr-5" name="create-outline"></ion-icon>Edit
+          Profile</ion-button
+        >
+        <ion-button fill="solid" shape="round" color="secondary"
+          ><ion-icon name="ellipsis-horizontal-outline"></ion-icon
+        ></ion-button>
+      </div>
+      <div class="fbFeedToggle">
+        <ion-segment class="mt-10" [(ngModel)]="feedTogglePages">
+          <ion-segment-button value="posts"> Posts </ion-segment-button>
+          <ion-segment-button value="photos"> Photos </ion-segment-button>
+          <ion-segment-button value="Videos"> Videos </ion-segment-button>
+          <ion-segment-button value="Events"> Events </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div class="fbDetailsContainer">
+        <h6>Details</h6>
+        <p>
+          <ion-icon class="mr-5" name="ellipsis-horizontal-outline"></ion-icon
+          >See TestMyProfilePicture's About Info
+        </p>
+        <h6>Friends</h6>
+        <p>26 mutual friends</p>
+        <div class="igFeedPost">
+          <img src="../../assets/image_1.jpeg" alt="friend" />
+          <img src="../../assets/image_2.jpg" alt="friend" />
+          <img src="../../assets/image_3.jpg" alt="friend" />
+          <img src="../../assets/image_4.jpg" alt="friend" />
+          <img src="../../assets/image_5.jpg" alt="friend" />
+          <img src="../../assets/image_6.jpg" alt="friend" />
+        </div>
+      </div>
+      <div class="igBottomBar">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-icon name="film-outline"></ion-icon>
+        <ion-icon name="bag-outline"></ion-icon>
+        <ion-icon name="heart-half-outline"></ion-icon>
+        <ion-icon name="notifications-outline"></ion-icon>
         <ion-icon name="person-outline"></ion-icon>
       </div>
     </div>

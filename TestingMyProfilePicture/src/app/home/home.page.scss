@@ -13,7 +13,8 @@
   height: 100%;
 }
 
-#instagram {
+#instagram,
+#facebook {
   min-width: 360px;
   margin: auto;
   max-width: 480px;
@@ -125,4 +126,46 @@
 
 image-cropper {
   height: 400px;
+}
+
+.fbHeader {
+  height: 250px;
+  position: relative;
+  background-image: url(../../assets/orange-and-white-cat-dream-meaning-768x461.webp);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 55px;
+}
+
+.fbAvatarContainer {
+  position: absolute;
+  bottom: -40px;
+  left: 10px;
+}
+
+.fbAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: lightgray;
+  background: blue;
+  padding: 2px;
+  object-fit: cover;
+}
+
+.fbButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.fbButtons > ion-button {
+  font-size: small;
+}
+
+.fbDetailsContainer > p {
+  display: flex;
+  align-items: center;
+  font-size: small;
 }

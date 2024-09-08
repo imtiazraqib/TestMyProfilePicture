@@ -26,6 +26,7 @@ export class HomePage {
     this.feedTogglePages = 'feed';
     this.flags = {
       profilePicture: '',
+      activePlatform: 'instagram',
     };
   }
 
@@ -81,6 +82,19 @@ export class HomePage {
 
   instagram() {
     this.animate = true;
+    this.flags.activePlatform = 'instagram';
+    setTimeout(() => (this.animate = false), 1000); // reset animation state after it ends
+  }
+
+  facebook() {
+    this.animate = true;
+    this.flags.activePlatform = 'facebook';
+    setTimeout(() => (this.animate = false), 1000); // reset animation state after it ends
+  }
+
+  linkedin() {
+    this.animate = true;
+    this.flags.activePlatform = 'linkedin';
     setTimeout(() => (this.animate = false), 1000); // reset animation state after it ends
   }
 }
